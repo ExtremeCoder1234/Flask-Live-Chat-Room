@@ -1,0 +1,63 @@
+{% extends "base.html"%} {% block content %}
+<form method="POST" class="buttons">
+  <h3 align="center">Enter the Chat Room</h3>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Pick your name"
+      name="name"
+      id="name"
+      value="{{name}}"
+    />
+  </div>
+
+  <div class="join form-group"> <!-- Insert join back into class list-->
+    <label for="code">Room Code(if joining a room):</label>
+    <input class="form-control" type="text" placeholder="Room Code" id="code" name="code" value="{{code}}" />
+    
+  </div>
+  <button class="btn btn-secondary" type="submit" name="join">
+      Join a Room
+    </button>
+  <button type="submit" name="create" class="create-btn btn btn-primary">
+    Create a Room
+  </button>
+</form>
+
+
+  <div class="modal" id="errorModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!------------------------------------------------------------->
+        <div class="modal-header">
+          <h3 class="modal-title">Error</h3>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
+        <!------------------------------------------------------------->
+        <div class="modal-body">
+          <p>{{error}}</p>
+        </div>
+        <!------------------------------------------------------------->
+      </div>
+    </div>
+  </div>
+
+  {% if error %}
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      const myModalElement = document.getElementById("errorModal");
+      const myModal = new bootstrap.Modal(myModalElement);
+      myModal.show();
+    });
+  </script>
+  {% endif %}
+{% endblock %}
