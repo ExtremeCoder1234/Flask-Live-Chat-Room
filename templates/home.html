@@ -1,8 +1,8 @@
 {% extends "base.html"%} {% block content %}
 <form method="POST" class="buttons">
   <h3 align="center">Enter the Chat Room</h3>
-  <div class="form-group">
-    <label for="name">Name</label>
+  <label class="form-label" for="name">Name</label>
+  <div class="input-group mb-3">
     <input
       type="text"
       class="form-control"
@@ -13,14 +13,14 @@
     />
   </div>
 
-  <div class="join form-group"> <!-- Insert join back into class list-->
-    <label for="code">Room Code(if joining a room):</label>
-    <input class="form-control" type="text" placeholder="Room Code" id="code" name="code" value="{{code}}" />
-    
-  </div>
-  <button class="btn btn-secondary" type="submit" name="join">
-      Join a Room
-    </button>
+  <label class="form-label" for="code">Room Code(if joining a room):</label>
+  <div class="join input-group mb-3"> <!-- Insert join back into class list-->
+      <input class="form-control" type="text" placeholder="Room Code" id="code" name="code" value="{{code}}" />
+      <button class="btn btn-secondary input-group-text">
+              Join a Room
+      </button>
+</div>
+
   <button type="submit" name="create" class="create-btn btn btn-primary">
     Create a Room
   </button>
@@ -39,7 +39,7 @@
             data-bs-dismiss="modal"
             aria-label="Close"
           >
-            &times;
+
           </button>
         </div>
         <!------------------------------------------------------------->
